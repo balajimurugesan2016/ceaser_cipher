@@ -7,15 +7,16 @@ public class Kingdom {
 
     HashMap<String, Emblem> kd;
 
+
     public Kingdom() {
         kd = new HashMap<String, Emblem>();
         // Set Space
-        setSpace();
-        setLand();
-        setWater();
-        setIce();
-        setAir();
-        setFire();
+        this.setSpace();
+        this.setLand();
+        this.setWater();
+        this.setIce();
+        this.setAir();
+        this.setFire();
 
     }
 
@@ -38,6 +39,8 @@ public class Kingdom {
         land.setMap("D", 1);
 
         kd.put("LAND", land);
+    
+        
     }
 
     public void setWater() {
@@ -66,6 +69,7 @@ public class Kingdom {
         air.setMap("W",1);
         air.setMap("L",1);
         kd.put("AIR", air);
+       
     }
     public void setFire(){
         Emblem fire = new Emblem();
@@ -76,6 +80,36 @@ public class Kingdom {
         fire.setMap("O",1);
         fire.setMap("N",1);
         kd.put("FIRE", fire);
+
+    }
+
+    public HashMap<String, Emblem> getMap(){
+
+              return kd;
+
+    }
+
+    public String getAnimalForKingdom(String kingType){
+         
+        switch(kingType){
+
+           case "AIR":
+           return "OWL" ;
+           case "ICE":
+           return "MAMMOTH" ;
+           case "FIRE":
+           return "DRAGON" ;
+           case "LAND":
+           return "PANDA" ;
+           case "WATER":
+           return "OCTOPUS" ;
+           case "SPACE":
+           return "GORILLA" ;
+           default:
+           return null;
+
+        }
+        
 
     }
 

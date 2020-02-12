@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public class Emblem{
 
- private static HashMap <String, Integer> emb;
+ private  HashMap <String, Integer> emb;
+
 
  public Emblem(){
 
