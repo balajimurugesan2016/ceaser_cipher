@@ -1,3 +1,8 @@
+/*************************
+ * Bean class to retreive emblems for different kingdoms. 
+ * AUTHOR: Balaji Vengatesh Murugesan
+ * Framework: Core java
+ * ************ */
 package com.cipher.Emblems;
 
 import java.util.HashMap;

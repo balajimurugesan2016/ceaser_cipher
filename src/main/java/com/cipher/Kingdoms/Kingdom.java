@@ -1,3 +1,9 @@
+/*************************
+ * Bean class to set occurances of characters and kingdom name in emblem into a hashMap structure
+ * AUTHOR: Balaji Vengatesh Murugesan
+ * Framework: Core java
+ * ************ */
+
 package com.cipher.Kingdoms;
 
 import java.util.HashMap;
