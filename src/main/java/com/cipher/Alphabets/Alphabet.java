@@ -21,9 +21,22 @@ public Alphabet(){
      
 }
 
-public Integer getAlphabetByLetter(String letter){
+public Integer getAlphabetPositionByLetter(String letter){
 
       return alphabets.get(letter);
+}
+
+public String getAlphabetByposition(int position){
+
+if(position > 26 && position < 0){
+
+    return null;
+}
+else
+{
+return alphs[position - 1];
+
+}
 
 }
 
