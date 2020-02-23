@@ -1,7 +1,15 @@
+/*************************
+ * Bean class to store Alphabets and their corresponding positions. This is done to prevent conversion overhead from ASCII to text.
+ * AUTHOR: Balaji Vengatesh Murugesan
+ * Framework: Core java
+ * ************ */
+
 package com.cipher.Alphabets;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
+
+import org.springframework.stereotype.Controller;
 
 public class Alphabet{
 private final HashMap <String,Integer> alphabets;

@@ -9,13 +9,18 @@ package com.cipher.Kingdoms;
 import java.util.HashMap;
 import com.cipher.Emblems.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Kingdom {
 
     HashMap<String, Emblem> kd;
 
 
+
     public Kingdom() {
         kd = new HashMap<String, Emblem>();
+        
+
         // Set Space
         this.setSpace();
         this.setLand();
@@ -27,6 +32,7 @@ public class Kingdom {
     }
 
     public void setSpace() {
+        
         Emblem space = new Emblem();
         space.setMap("G", 1);
         space.setMap("O", 1);

@@ -2,4 +2,6 @@
 /home/vagrant/ceaser_cipher/src/main/java/com/cipher/Alphabets/Alphabet.java
 /home/vagrant/ceaser_cipher/src/main/java/com/cipher/Kingdoms/Kingdom.java
 /home/vagrant/ceaser_cipher/src/test/java/com/cipher/ceaser/AppTest.java
+/home/vagrant/ceaser_cipher/src/main/java/com/cipher/ceaser/Config.java
 /home/vagrant/ceaser_cipher/src/main/java/com/cipher/ceaser/CeaserCipher.java
+/home/vagrant/ceaser_cipher/src/main/java/com/cipher/ceaser/Main.java
