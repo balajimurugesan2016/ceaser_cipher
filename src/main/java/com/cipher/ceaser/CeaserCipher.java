@@ -15,9 +15,9 @@ import com.cipher.Emblems.Emblem;
 import com.cipher.Kingdoms.Kingdom;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
-@Controller
+
+
 public class CeaserCipher {
 
     @Autowired 
@@ -35,19 +35,19 @@ public class CeaserCipher {
         failure.add("NONE");
     }
 
-    private String[] splitString(final String str) {
+    private String[] splitString(String str) {
 
         return str.split("\\s+", 2); // Split string based on first occurance, stop checking further occurances of
                                      // white spaces in strings
 
     }
 
-    private Boolean isEmbleminMessage(final String message, final HashMap<String, Integer> emblem,
-            final int kingdomlength) {
+    private Boolean isEmbleminMessage(String message,  HashMap<String, Integer> emblem,
+            int kingdomlength) {
         int position;
         int calculatedPosition;
         String letter;
-        final Boolean[] isFlag = { false };
+         Boolean[] isFlag = { false };
 
         // Loops every letter in message and calculates the position w.r.t length of the
         // emblem
@@ -70,7 +70,7 @@ public class CeaserCipher {
 
                 if (emblem.containsKey(letter)) {
 
-                    final int value = emblem.get(letter);
+                    int value = emblem.get(letter);
                     emblem.replace(letter, value, value - 1);
 
                 }
@@ -85,14 +85,14 @@ public class CeaserCipher {
     }
 
     // Decrypt the message and return kingdom type
-    private String decryptMsgGetkingdomType(final String message) {
-        final String[] texts = this.splitString(message);
-        final String kingdomType = texts[0];
-        final String Animal = kingdom.getAnimalForKingdom(kingdomType); // Get Animal emblem
-        final HashMap<String, Emblem> emblems = kingdom.getMap();
-        final Emblem et = emblems.get(kingdomType);
-        final HashMap<String, Integer> occurance = et.getMap();
-        final Boolean isSuccess = this.isEmbleminMessage(texts[1], occurance, Animal.length()); // Check if emblem is
+    private String decryptMsgGetkingdomType(String message) {
+        String[] texts = this.splitString(message);
+        String kingdomType = texts[0];
+         String Animal = kingdom.getAnimalForKingdom(kingdomType); // Get Animal emblem
+         HashMap<String, Emblem> emblems = kingdom.getMap();
+         Emblem et = emblems.get(kingdomType);
+         HashMap<String, Integer> occurance = et.getMap();
+        Boolean isSuccess = this.isEmbleminMessage(texts[1], occurance, Animal.length()); // Check if emblem is
                                                                                                 // present in message
                                                                                                 // using ceaser cpher
         if (isSuccess) {
@@ -106,12 +106,12 @@ public class CeaserCipher {
     // Read the input file from directory and print the success or failure of the
     // conquest
     public void readInput() {
-        final File file = new File("/home/vagrant/testcases1.txt");
-
+         File file = new File("/home/vagrant/testcases1.txt");
+         kingdom.instantiateEmblems();
         try (Scanner sc = new Scanner(file)) {
 
             while (sc.hasNextLine()) {
-                final String king = this.decryptMsgGetkingdomType(sc.nextLine());
+                 String king = this.decryptMsgGetkingdomType(sc.nextLine());
                 if (king != null) { // Add kingdoms present in the message to success
                     success.add(king);
                 }
@@ -124,7 +124,7 @@ public class CeaserCipher {
                 System.out.println(failure);
             }
 
-        } catch (final Exception e) {
+        } catch ( Exception e) {
             System.out.println(e.getMessage());
         }
 

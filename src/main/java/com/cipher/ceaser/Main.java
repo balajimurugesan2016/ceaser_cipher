@@ -12,11 +12,11 @@ class Main {
 
 public static void main(String... args){
 
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-    ac.register(Alphabet.class);
-    ac.register(Kingdom.class);
+    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Config.class); 
+    ac.register(Emblem.class);  
+    ac.register(Kingdom.class);  
     ac.register(CeaserCipher.class);
-    ac.refresh();
+    ac.register(Alphabet.class);
     CeaserCipher cc = (CeaserCipher)ac.getBean(CeaserCipher.class);
     cc.readInput();
     ac.close();

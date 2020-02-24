@@ -6,11 +6,12 @@
 
 package com.cipher.Alphabets;
 
-
 import java.util.HashMap;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class Alphabet{
 private final HashMap <String,Integer> alphabets;
 private final String [] alphs = { "A", "B", "C", "D", "E", "F", "G", "H", "I","J","K","L","M", "N", "O", "P", "Q", "R", "S", "T", "U", 

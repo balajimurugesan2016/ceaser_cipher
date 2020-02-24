@@ -7,21 +7,33 @@
 package com.cipher.Kingdoms;
 
 import java.util.HashMap;
-import com.cipher.Emblems.*;
-
+import com.cipher.Emblems.Emblem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.stereotype.Component;
 
-public class Kingdom {
 
+@Component
+public class Kingdom  {
+   
     HashMap<String, Emblem> kd;
-
-
+    @Autowired
+    private Emblem emblem;
+  
 
     public Kingdom() {
-        kd = new HashMap<String, Emblem>();
-        
 
-        // Set Space
+        
+      
+        kd = new HashMap<String, Emblem>();
+    }
+
+    @Lookup
+    public Emblem getEmblemProtoBean() {
+        return null;
+    }
+
+    public void instantiateEmblems(){
         this.setSpace();
         this.setLand();
         this.setWater();
@@ -32,96 +44,102 @@ public class Kingdom {
     }
 
     public void setSpace() {
-        
-        Emblem space = new Emblem();
-        space.setMap("G", 1);
-        space.setMap("O", 1);
-        space.setMap("R", 1);
-        space.setMap("I", 1);
-        space.setMap("L", 2);
-        space.setMap("A", 1);
-        kd.put("SPACE", space);
+
+        emblem = getEmblemProtoBean();
+        emblem.setMap("G", 1);
+        emblem.setMap("O", 1);
+        emblem.setMap("R", 1);
+        emblem.setMap("I", 1);
+        emblem.setMap("L", 2);
+        emblem.setMap("A", 1);
+        kd.put("SPACE", emblem);
     }
 
     public void setLand() {
-        Emblem land = new Emblem();
-        land.setMap("P", 1);
-        land.setMap("A", 2);
-        land.setMap("N", 1);
-        land.setMap("D", 1);
+      
+        // Emblem land = new Emblem();
+        emblem = getEmblemProtoBean();
+        emblem.setMap("P", 1);
+        emblem.setMap("A", 2);
+        emblem.setMap("N", 1);
+        emblem.setMap("D", 1);
 
-        kd.put("LAND", land);
-    
-        
+        kd.put("LAND", emblem);
+
     }
 
     public void setWater() {
-        Emblem water = new Emblem();
-        water.setMap("O", 2);
-        water.setMap("C", 1);
-        water.setMap("T", 1);
-        water.setMap("P", 1);
-        water.setMap("U", 1);
-        water.setMap("S", 1);
-        kd.put("WATER", water);
+        // Emblem water = new Emblem();
+        emblem = getEmblemProtoBean();
+        emblem.setMap("O", 2);
+        emblem.setMap("C", 1);
+        emblem.setMap("T", 1);
+        emblem.setMap("P", 1);
+        emblem.setMap("U", 1);
+        emblem.setMap("S", 1);
+        kd.put("WATER", emblem);
     }
 
     public void setIce() {
-        Emblem ice = new Emblem();
-        ice.setMap("M", 3);
-        ice.setMap("A", 1);
-        ice.setMap("O", 1);
-        ice.setMap("T", 1);
-        ice.setMap("H", 1);
-        kd.put("ICE", ice);
+        // Emblem ice = new Emblem();
+        emblem = getEmblemProtoBean();
+        emblem.setMap("M", 3);
+        emblem.setMap("A", 1);
+        emblem.setMap("O", 1);
+        emblem.setMap("T", 1);
+        emblem.setMap("H", 1);
+        kd.put("ICE", emblem);
     }
-    public void setAir(){
-        Emblem air = new Emblem();
-        air.setMap("O",1);
-        air.setMap("W",1);
-        air.setMap("L",1);
-        kd.put("AIR", air);
-       
-    }
-    public void setFire(){
-        Emblem fire = new Emblem();
-        fire.setMap("D",1);
-        fire.setMap("R",1);
-        fire.setMap("A",1);
-        fire.setMap("G",1);
-        fire.setMap("O",1);
-        fire.setMap("N",1);
-        kd.put("FIRE", fire);
+
+    public void setAir() {
+        // Emblem air = new Emblem();
+        emblem = getEmblemProtoBean();
+        emblem.setMap("O", 1);
+        emblem.setMap("W", 1);
+        emblem.setMap("L", 1);
+        kd.put("AIR", emblem);
 
     }
 
-    public HashMap<String, Emblem> getMap(){
-
-              return kd;
+    public void setFire() {
+        // Emblem fire = new Emblem();
+        emblem = getEmblemProtoBean();
+        emblem.setMap("D", 1);
+        emblem.setMap("R", 1);
+        emblem.setMap("A", 1);
+        emblem.setMap("G", 1);
+        emblem.setMap("O", 1);
+        emblem.setMap("N", 1);
+        kd.put("FIRE", emblem);
 
     }
 
-    public String getAnimalForKingdom(String kingType){
-         
-        switch(kingType){
+    public HashMap<String, Emblem> getMap() {
 
-           case "AIR":
-           return "OWL" ;
-           case "ICE":
-           return "MAMMOTH" ;
-           case "FIRE":
-           return "DRAGON" ;
-           case "LAND":
-           return "PANDA" ;
-           case "WATER":
-           return "OCTOPUS" ;
-           case "SPACE":
-           return "GORILLA" ;
-           default:
-           return null;
+        return kd;
+
+    }
+
+    public String getAnimalForKingdom(String kingType) {
+
+        switch (kingType) {
+
+        case "AIR":
+            return "OWL";
+        case "ICE":
+            return "MAMMOTH";
+        case "FIRE":
+            return "DRAGON";
+        case "LAND":
+            return "PANDA";
+        case "WATER":
+            return "OCTOPUS";
+        case "SPACE":
+            return "GORILLA";
+        default:
+            return null;
 
         }
-        
 
     }
 
